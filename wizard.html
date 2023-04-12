@@ -32,8 +32,8 @@
             <label class="row" for="rubro">Rubro</label>
             <input class="row" type="text" id="rubroEmpresa">
     
-            <button type="submit" onclick="wizardFirst()">Siguiente</button>
-            <script src="index.js"></script>
+            <button  onclick="wizardFirst()">Siguiente</button>
+          
         </form>
     </div>
 
@@ -47,9 +47,11 @@
         <p class="row">Ingrese los datos de contacto</p>
         <form action="">
             <!-- Input 2do form -->
-            <label class="row" for="nomPersona">Nombre Y Apellido</label> 
-            <!-- Se colocan los ID para llamar los DOM desde Js -->
+            <label class="row" for="nomPersona">Nombre</label> 
             <input class="row" type="text" id="nombrePersona">
+
+            <label class="row" for="apellidoPersona">Apellido</label> 
+            <input class="row" type="text" id="apellidoPersona">
 
             <label class="row" for="telefono">Telefono</label>
             <input class="row" type="tel" id="telefonoPersona">
@@ -58,29 +60,27 @@
             <input class="row" type="email" id="mailPersona">
 
             <button>Anterior</button>
-            <button type="submit" onclick="wizardSecond()">Siguiente</button>
+            <button onclick="wizardSecond(); wizardThird()">Siguiente</button>
 
         </form>
     </div>
 
 
 
-    <div class="container align-items-start ml-5 mt-5" id="thirdStep">
+    <div class="container align-items-start ml-5 mt-5">
         <!-- Barra de carga -->
         <img src="resources/BarraCarga3.svg" alt="" srcset="">
 
         <h2 class="row">Paso 3</h2>
         <p class="row">Corroborar datos</p>
-        <form action="">
-
-
-
-            <p class="row" id="nombreEmpresa"></p>
+        <form action="" id="formUltimopaso">
+            <div id="thirdStep">
+            <p class="row" id="nombreEmpresaout"></p>
             <p class="row" id="rubroEmpresa"></p>
             <p class="row" id="nombrePersona"></p>
             <p class="row" id="telefonoPersona"></p>
             <p class="row" id="emailpersona"></p>
-
+            </div>
         </form>
     </div>
 
