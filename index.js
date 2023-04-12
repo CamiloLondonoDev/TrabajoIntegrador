@@ -23,4 +23,9 @@ function wizardSecond() {
     }
 
 
-
+    function wizardThird() {
+        console.log(nombreEmpresa)
+        // document.getElementById("formUltimopaso").innerHTML= nombreEmpresa 
+        document.getElementById("thirdStep").innerHTML = nombreEmpresa
+    }
+    
