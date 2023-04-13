@@ -12,6 +12,7 @@ function wizardFirst() {
 
 function wizardSecond() {
     let nombrePersona =  document.getElementById("nombrePersona").value;
+    let apellidoPersona = document.getElementById("apellidoPersona").value;
     let telefonoPersona = document.getElementById("telefonoPersona").value;
     let mailPersona = document.getElementById("mailPersona").value;
     let primerPaso = document.getElementById("firstStep").style.display = "none";
@@ -20,12 +21,10 @@ function wizardSecond() {
     console.log(nombrePersona);
     console.log(telefonoPersona);
     console.log(mailPersona);
-    }
 
 
-    function wizardThird() {
-        console.log(nombreEmpresa)
-        // document.getElementById("formUltimopaso").innerHTML= nombreEmpresa 
-        document.getElementById("thirdStep").innerHTML = nombreEmpresa
-    }
-    
+
+    document.getElementById("thirdStep").innerHTML = nombreEmpresa
+
+ 
+}
