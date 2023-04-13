@@ -33,6 +33,8 @@ function wizardSecond() {
     console.log(telefonoPersona);
     console.log(mailPersona);
 
+    $("#nombreEmpresaout").html(nombreEmpresa)
+
 
     // Verificando los campos de la API, la conexion ya funciona y responde en parte
     $.ajax({
