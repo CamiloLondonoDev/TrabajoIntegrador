@@ -29,10 +29,11 @@
 
         <form class=" ml-0" >
             <!-- Input, combo texto -->
-            <label class="row" for="nomEmpresa">Nombre de la empresa</label>
-            <input class="row" type="text" id="nombreEmpresa">
-    
-            <label class="row" for="rubro">Rubro</label>
+                <label class="row form-label" for="nomEmpresa" required>Nombre de la empresa</label>
+                <input class="form-control" type="text" id="nombreEmpresa" required>
+
+              
+            <label class="row" for="rubro" >Rubro <div id="errorMsg"></div></label>
             <input class="row" type="text" id="rubroEmpresa">
     
             <button type="button" onclick="wizardFirst()">Siguiente</button>
@@ -50,7 +51,7 @@
         <p class="row">Ingrese los datos de contacto</p>
         <form>
             <!-- Input 2do form -->
-            <label class="row" for="nomPersona">Nombre</label> 
+            <label class="row" for="nomPersona" required>Nombre</label> 
             <input class="row" type="text" id="nombrePersona">
 
             <label class="row" for="apellidoPersona">Apellido</label> 
@@ -76,14 +77,27 @@
 
         <h2 class="row">Paso 3</h2>
         <p class="row">Corroborar datos</p>
-        <div id="nombreEmpresaout"></div>
+        
         <form>
-            <div>
-            <p class="row" ></p>
-            <p class="row" id="rubroEmpresa"></p>
-            <p class="row" id="nombrePersona"></p>
-            <p class="row" id="telefonoPersona"></p>
-            <p class="row" id="emailpersona"></p>
+            <div class="container">
+                <label for="nombreEmpresaOut">Empresa</label>
+                <div class="row" id="nombreEmpresaOut"></div>
+            
+                <label for="rubroEmpresaOut">Rubro</label>
+                <div class="row" id="rubroEmpresaOut"></div>
+            
+                <label for="nombrePersonaOut">Nombre</label>
+                <div class="row" id="nombrePersonaOut"></div>
+            
+                <label for="nombrePersonaOut">Apellido</label>
+                <div class="row" id="apellidoPersonaOut"></div>
+
+            
+                <label for="telefonoPersonaOut">Telefono</label>
+                <div class="row" id="telefonoPersonaOut"></div>
+
+                <label for="mailPersonaOut">Mail</label>
+                <div class="row" id="mailPersonaOut"></div>
             </div>
         </form>
     </div>
