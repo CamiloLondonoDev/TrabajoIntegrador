@@ -7,3 +7,8 @@ body {
 span{
     color: red;
 }
+
+.btn-primary{
+    border-radius: 15px;
+
+}

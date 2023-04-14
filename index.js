@@ -15,6 +15,7 @@ function wizardFirst() {
     if (nombreEmpresa.length <= 0 || nombreEmpresa == null) {
         $("#errorNombre").text("Este campo es requerido");
         $("#errorNombre").show();
+
     }
     if (rubroEmpresa.length <= 0) {
         $("#errorRubro").text("Este campo es requerido");
@@ -24,7 +25,7 @@ function wizardFirst() {
         $("#firstStep").hide();
         $("#secondStep").show();
         $("#thirdStep").hide();
-    
+
         console.log(nombreEmpresa);
         console.log(rubroEmpresa);
     }
@@ -53,26 +54,43 @@ function wizardSecond() {
     $("#telefonoPersonaOut").html(telefonoPersona);
     $("#mailPersonaOut").html(mailPersona);
 
-
+  
 
     // Verificando los campos de la API, la conexion ya funciona y responde en parte
     $.ajax({
         method:"POST",
         url: "https://reqres.in/api/users",
         data: {
-            "name": "pepe",
-            "job": "caramelos",
-            // "nombrePersona" : nombrePersona,
-            // "apellidoPersona": apellidoPersona,
-            // "telefonoPersona": telefonoPersona,
-            // "mailPersona": mailPersona,
-    
+            "name": nombreEmpresa.value,
+            "job": rubroEmpresa.value,
+            "Cliente": nombrePersona,
+            "Telefono": telefonoPersona,
+            "mail": mailPersona,
         }
-    }).done()
+    }).done(
+        function(msj) {
+        console.log(msj)
+
+        }
+
+
+    )
+
+    // $.ajax({
+    //     method:"POST",
+    //     url: "https://reqres.in/api/login",
+    //     data: {
+
+    //     "email": "mail",
+    //     "password": "Clave",
+    //     }
+    // }).done()
+
 }
 
 
-
-// Falta armar en jquery el validador de los campos
-
-
+function inicio() {
+    $("#firstStep").show();
+    $("#secondStep").hide();
+    $("#thirdStep").hide();
+}
