@@ -1,20 +1,40 @@
+
 // Llamo por jquery a todo el documento y escondo el 2do y 3er paso una vez que finalizo la carga
 
 $(document).ready(function(){
     $("#firstStep").show();
     $("#secondStep").hide();
     $("#thirdStep").hide();
+    $("#errorMsg").hide();
 })
 
 function wizardFirst() {
     let nombreEmpresa =  document.getElementById("nombreEmpresa").value;
     let rubroEmpresa = document.getElementById("rubroEmpresa").value;
-    $("#firstStep").hide();
-    $("#secondStep").show();
-    $("#thirdStep").hide();
 
-    console.log(nombreEmpresa);
-    console.log(rubroEmpresa);
+    if (nombreEmpresa.length == "0") {
+        // $("#errorMsg").text("*"+" Por favor ingrese el nombre de la empresa");
+        // $("#errorMsg").show();
+    }
+    if (rubroEmpresa.length <= 0) {
+        // $("#errorMsg").text("*"+" Por favor ingrese el rubro de la empresa");
+        // $("#errorMsg").show();
+    }
+    else{
+        $("#firstStep").hide();
+        $("#secondStep").show();
+        $("#thirdStep").hide();
+    
+        console.log(nombreEmpresa);
+        console.log(rubroEmpresa);
+    }
+    // $("#firstStep").hide();
+    // $("#secondStep").show();
+    // $("#thirdStep").hide();
+
+    // console.log(nombreEmpresa);
+    // console.log(rubroEmpresa);
+
 }
 
 function wizardSecond() {
@@ -33,7 +53,13 @@ function wizardSecond() {
     console.log(telefonoPersona);
     console.log(mailPersona);
 
-    $("#nombreEmpresaout").html(nombreEmpresa)
+    $("#nombreEmpresaOut").html(nombreEmpresa);
+    $("#rubroEmpresaOut").html(rubroEmpresa);
+    $("#nombrePersonaOut").html(nombrePersona);
+    $("#apellidoPersonaOut").html(apellidoPersona);
+    $("#telefonoPersonaOut").html(telefonoPersona);
+    $("#mailPersonaOut").html(mailPersona);
+
 
 
     // Verificando los campos de la API, la conexion ya funciona y responde en parte
@@ -50,13 +76,10 @@ function wizardSecond() {
     
         }
     }).done()
-
-
- 
 }
 
 
+
 // Falta armar en jquery el validador de los campos
-// Falta meter los valores de los campos en el HTML segun el paso 3
 
 
