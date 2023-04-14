@@ -29,6 +29,7 @@ function wizardFirst() {
         console.log(rubroEmpresa);
     }
 
+
 }
 
 function wizardSecond() {
@@ -79,7 +80,8 @@ function wizardSecond() {
 }
 
 
-
-// Falta armar en jquery el validador de los campos
-
-
+function inicio() {
+    $("#firstStep").show();
+    $("#secondStep").hide();
+    $("#thirdStep").hide();
+}

@@ -29,14 +29,13 @@
 
         <form class=" ml-0" >
             <!-- Input, combo texto -->
-                <label class="row form-label" for="nomEmpresa" required>Nombre de la empresa</label>
-                <input class="form-control" type="text" id="nombreEmpresa" required>
-
+            <label class="row form-label" for="nombreEmpresa" required>Nombre de la empresa</label>
+            <input class="row" type="text" required>
               
             <label class="row" for="rubro" >Rubro <div id="errorMsg"></div></label>
-            <input class="row" type="text" id="rubroEmpresa">
+            <input class="row" type="text" id="rubroEmpresa"><br>
     
-            <button type="button" onclick="wizardFirst()">Siguiente</button>
+            <button type="button" class="btn btn-primary" onclick="wizardFirst()">Siguiente</button>
           
         </form>
     </div>
@@ -61,10 +60,14 @@
             <input class="row" type="tel" id="telefonoPersona">
 
             <label class="row" for="email">Email</label>
-            <input class="row" type="email" id="mailPersona">
+            <input class="row" type="email" id="mailPersona"><br>
 
-            <button type="button">Anterior</button>
-            <button type="button" onclick="wizardSecond()">Siguiente</button>
+            <div class="d-grid gap-2 d-md-block">
+                <button type="button" class="btn btn-primary" onclick="inicio()">Anterior</button>
+                <button type="button" class="btn btn-primary" onclick="wizardSecond()">Siguiente</button>
+              </div>
+
+
 
         </form>
     </div>
