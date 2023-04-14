@@ -28,12 +28,6 @@ function wizardFirst() {
         console.log(nombreEmpresa);
         console.log(rubroEmpresa);
     }
-    // $("#firstStep").hide();
-    // $("#secondStep").show();
-    // $("#thirdStep").hide();
-
-    // console.log(nombreEmpresa);
-    // console.log(rubroEmpresa);
 
 }
 
@@ -67,15 +61,21 @@ function wizardSecond() {
         method:"POST",
         url: "https://reqres.in/api/users",
         data: {
-            "name": "pepe",
-            "job": "caramelos",
-            // "nombrePersona" : nombrePersona,
-            // "apellidoPersona": apellidoPersona,
-            // "telefonoPersona": telefonoPersona,
-            // "mailPersona": mailPersona,
-    
+            "name": nombreEmpresa,
+            "job": rubroEmpresa,
         }
     }).done()
+
+    // $.ajax({
+    //     method:"POST",
+    //     url: "https://reqres.in/api/login",
+    //     data: {
+                
+    //     "email": "mail",
+    //     "password": "Clave",
+    //     }
+    // }).done()
+
 }
 
 
