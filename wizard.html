@@ -27,17 +27,20 @@
         <h2 class="row" >Paso 1</h2>
         <p class="row">Ingrese los datos de su empresa</p>
 
-        <form class=" ml-0" >
+        <form class=" ml-0">
             <!-- Input, combo texto -->
-                <label class="row form-label" for="nomEmpresa" required>Nombre de la empresa</label>
-                <input class="form-control" type="text" id="nombreEmpresa" required>
+            <label class="row" for="nomEmpresa" required>Nombre de la empresa</label>
+            <input class="row" type="text" id="nombreEmpresa" required>
+            <span class="row" id="errorNombre"></span>
 
-              
-            <label class="row" for="rubro" >Rubro <div id="errorMsg"></div></label>
+        
+            <label class="row" for="rubro">Rubro <div id="errorMsg"></div></label>
             <input class="row" type="text" id="rubroEmpresa">
-    
+            <span class="row" id="errorRubro"></span>
+
+        
             <button type="button" onclick="wizardFirst()">Siguiente</button>
-          
+        
         </form>
     </div>
 
