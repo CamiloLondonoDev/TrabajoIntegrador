@@ -12,14 +12,14 @@ function wizardFirst() {
     let nombreEmpresa =  document.getElementById("nombreEmpresa").value;
     let rubroEmpresa = document.getElementById("rubroEmpresa").value;
 
-    if (nombreEmpresa.length == "0") {
-       
-        // $("#errorMsg").text("*"+" Por favor ingrese el nombre de la empresa");
-        // $("#errorMsg").show();
+    if (nombreEmpresa.length <= 0 || nombreEmpresa == null) {
+        $("#errorNombre").text("Este campo es requerido");
+        $("#errorNombre").show();
+
     }
     if (rubroEmpresa.length <= 0) {
-        // $("#errorMsg").text("*"+" Por favor ingrese el rubro de la empresa");
-        // $("#errorMsg").show();
+        $("#errorRubro").text("Este campo es requerido");
+        $("#errorRubro").show();
     }
     else{
         $("#firstStep").hide();
@@ -29,8 +29,6 @@ function wizardFirst() {
         console.log(nombreEmpresa);
         console.log(rubroEmpresa);
     }
-
-
 }
 
 function wizardSecond() {
