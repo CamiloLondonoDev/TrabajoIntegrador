@@ -13,6 +13,7 @@ function wizardFirst() {
     let rubroEmpresa = document.getElementById("rubroEmpresa").value;
 
     if (nombreEmpresa.length == "0") {
+       
         // $("#errorMsg").text("*"+" Por favor ingrese el nombre de la empresa");
         // $("#errorMsg").show();
     }
@@ -24,7 +25,7 @@ function wizardFirst() {
         $("#firstStep").hide();
         $("#secondStep").show();
         $("#thirdStep").hide();
-    
+
         console.log(nombreEmpresa);
         console.log(rubroEmpresa);
     }
@@ -55,23 +56,33 @@ function wizardSecond() {
     $("#telefonoPersonaOut").html(telefonoPersona);
     $("#mailPersonaOut").html(mailPersona);
 
-
+  
 
     // Verificando los campos de la API, la conexion ya funciona y responde en parte
     $.ajax({
         method:"POST",
         url: "https://reqres.in/api/users",
         data: {
-            "name": nombreEmpresa,
-            "job": rubroEmpresa,
+            "name": nombreEmpresa.value,
+            "job": rubroEmpresa.value,
+            "Cliente": nombrePersona,
+            "Telefono": telefonoPersona,
+            "mail": mailPersona,
         }
-    }).done()
+    }).done(
+        function(msj) {
+        console.log(msj)
+
+        }
+
+
+    )
 
     // $.ajax({
     //     method:"POST",
     //     url: "https://reqres.in/api/login",
     //     data: {
-                
+
     //     "email": "mail",
     //     "password": "Clave",
     //     }
