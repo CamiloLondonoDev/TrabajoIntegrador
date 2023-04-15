@@ -44,75 +44,95 @@ function wizardFirst() {
 }
 
 function wizardSecond() {
+    let pruebaMail = false;
+    let pruebaTel = false;
+
 
     let nombrePersona = document.getElementById("nombrePersona").value;
     let apellidoPersona = document.getElementById("apellidoPersona").value;
     let telefonoPersona = document.getElementById("telefonoPersona").value;
     let mailPersona = document.getElementById("mailPersona").value;
+    validaTel(telefonoPersona);
+    validaEmail(mailPersona);
 
-    if (telefonoPersona.length == 0) {
-        $("#errorTlf").html("El Telefono es requerido");
-
-    } 
-    else if (telefonoPersona.length != 0) {
-
-        const regexTelefonoAR = /^\+?(54)?[ -]?(0?11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
-        let prueba = regexTelefonoAR.test(telefonoPersona);
-
-        if (prueba) {
-
-            if (nombrePersona.length == 0 || apellidoPersona.length == 0 || mailPersona.length == 0)  {
-
-                $("#firstStep").hide();
-                $("#secondStep").show();
-                $("#thirdStep").hide();
+    function validaTel() {
+        $("#errorTlf").hide();
         
+        if (telefonoPersona.length == 0) {
+            $("#errorTlf").html("El Telefono es requerido");
+            $("#errorTlf").show();
+            $("#errorTlf").css({'border-color': 'red'});
+            return pruebaTel = false;
+        } else {
+            const regexTelefonoAR = /^\+?(54)?[ -]?(0?11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
+
+            if (regexTelefonoAR.test(telefonoPersona)) {
+                $("#telefonoPersona").css({'border-color': 'green'});
+                return pruebaTel = true;
             }
             else{
-                $("#firstStep").hide();
-                $("#secondStep").hide();
-                $("#thirdStep").show();
-                // $("#errorTlf").text("El telefono es invalido");
-
-                $("#nombreEmpresaOut").html(nombreEmpresa);
-                $("#rubroEmpresaOut").html(rubroEmpresa);
-                $("#nombrePersonaOut").html(nombrePersona);
-                $("#apellidoPersonaOut").html(apellidoPersona);
-                $("#telefonoPersonaOut").html(telefonoPersona);
-                $("#mailPersonaOut").html(mailPersona);
-
-                $.ajax({
-                    method:"POST",
-                    url: "https://reqres.in/api/users",
-                    data: {
-                        "name": nombreEmpresa.value,
-                        "job": rubroEmpresa.value,
-                        "Cliente": nombrePersona,
-                        "Telefono": telefonoPersona,
-                        "mail": mailPersona,
-                    }
-                }).done(
-                    function(msj) {
-            
-                        alert("Muchas gracias por contactarte con nosotros, tu número de gestión es el  " + msj.id + " en breve nuestro equipo se pondrá en contacto contigo")
-            
-                    }
-                )
-           
+                $("#errorTlf").html("El formato del telefono es erroneo");
+                $("#errorTlf").show();
+                $("#telefonoPersona").css({'border-color': 'red'});
+                return pruebaTel = false;
             }
-
-           
-        } 
-        else {
-            console.log("es Falso");
-            $("#errorTlf").html("El formato del número es erroneo");
-            $("#errorTlf").show();
-            prueba = false;
-
         }
-       
     }
 
+    function validaEmail() {
+        $("#errorMail").hide();
+    
+        if (mailPersona.length == 0) {
+            $("#errorMail").html("El Email es requerido");
+            $("#errorMail").show();
+            $("#mailPersona").css({ 'border-color': 'red' })
+            return pruebaMail = false;
+        } else {
+            const validEmail = /^\w+([.-_+]?\w+)*@\w+([.-]?\w+)*(\.\w{2,10})+$/;
+    
+            // Using test we can check if the text match the pattern
+            if (validEmail.test(mailPersona)) {
+                $("#mailPersona").css({ 'border-color': 'green' })
+                return pruebaMail = true;
+            } else {
+                $("#errorMail").html("El formato del Email es erroneo");
+                $("#errorMail").show();
+                $("#mailPersona").css({ 'border-color': 'red' })
+                return pruebaMail = false;
+            }
+        }
+    }
+    
+    if (nombrePersona.length != 0 && apellidoPersona.length != 0 && pruebaMail == true && pruebaTel == true) {
+        $("#firstStep").hide();
+        $("#secondStep").hide();
+        $("#thirdStep").show();
+
+        $("#nombreEmpresaOut").html(nombreEmpresa);
+        $("#rubroEmpresaOut").html(rubroEmpresa);
+        $("#nombrePersonaOut").html(nombrePersona);
+        $("#apellidoPersonaOut").html(apellidoPersona);
+        $("#telefonoPersonaOut").html(telefonoPersona);
+        $("#mailPersonaOut").html(mailPersona);
+
+
+        $.ajax({
+            method:"POST",
+            url: "https://reqres.in/api/users",
+            data: {
+                "name": nombreEmpresa.value,
+                "job": rubroEmpresa.value,
+                "Cliente": nombrePersona,
+                "Telefono": telefonoPersona,
+                "mail": mailPersona,
+            }
+        }).done(
+            function(msj) {
+    
+                alert("Muchas gracias por contactarte con nosotros, tu número de gestión es el  " + msj.id + " en breve nuestro equipo se pondrá en contacto contigo")
+            }
+        )
+    }
 }
 
 function inicio() {
@@ -120,3 +140,7 @@ function inicio() {
     $("#secondStep").hide();
     $("#thirdStep").hide();
 }
+
+document.getElementById("home").onclick = function () {
+    location.href = "/index.html";
+};
