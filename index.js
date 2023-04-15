@@ -44,59 +44,49 @@ function wizardFirst() {
 }
 
 function wizardSecond() {
-   
-    let nombrePersona =  document.getElementById("nombrePersona").value;
+
+    let nombrePersona = document.getElementById("nombrePersona").value;
     let apellidoPersona = document.getElementById("apellidoPersona").value;
     let telefonoPersona = document.getElementById("telefonoPersona").value;
     let mailPersona = document.getElementById("mailPersona").value;
-     
-    // const regexTelefonoAR = /^\+?(54)?[ -]?(11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
-    // if (nombrePersona.length == 0 || apellidoPersona.length == 0 || telefonoPersona.length == 0 || mailPersona.length == 0) {
 
-    if (telefonoPersona.length == 0 ) {
+    if (telefonoPersona.length == 0) {
         $("#errorTlf").html("El Telefono es requerido");
-    
-    } else if (telefonoPersona.length != 0) {
 
-         let regexTelefonoAR = /^\+?(54)?[ -]?(0?11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
-         let Prueba = regexTelefonoAR.test(telefonoPersona);
+    } 
+    else if (telefonoPersona.length != 0) {
 
-             if (Prueba) {
- 
-            } else {
-                console.log("es Falso");
-                $("#errorTlf").html("El formato del numero es erroneo");
-                $("#errorTlf").show();
+        const regexTelefonoAR = /^\+?(54)?[ -]?(0?11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
+        let prueba = regexTelefonoAR.test(telefonoPersona);
 
-    }
+        if (prueba) {
+           
+        } 
+        else {
+            console.log("es Falso");
+            $("#errorTlf").html("El formato del número es erroneo");
+            $("#errorTlf").show();
+            prueba = false;
 
-    // } else {
-    //     if (regexTelefonoAR.test(telefonoPersona)) {
-    //         $("#firstStep").hide();
-    //         $("#secondStep").hide();
-    //         $("#thirdStep").show();
-    //         $("#errorTlf").text("El telefono es invalido");
+        }
+        if (nombrePersona.length == 0 || apellidoPersona.length == 0 || mailPersona.length == 0)  {
+
+        }
+        else{
+            $("#firstStep").hide();
+            $("#secondStep").hide();
+            $("#thirdStep").show();
+            $("#errorTlf").text("El telefono es invalido");
     
         
-    //         $("#nombreEmpresaOut").html(nombreEmpresa);
-    //         $("#rubroEmpresaOut").html(rubroEmpresa);
-    //         $("#nombrePersonaOut").html(nombrePersona);
-    //         $("#apellidoPersonaOut").html(apellidoPersona);
-    //         $("#telefonoPersonaOut").html(telefonoPersona);
-    //         $("#mailPersonaOut").html(mailPersona);
-    //     } 
-    //     else if(telefonoPersona.length != 0 && regexTelefonoAR.test(!telefonoPersona)) {
-    //         $("#errorTlf").text("Número de teléfono en Argentina inválido");
-    //     }
-
-    
-
-
-
-
-
-
-  
+            $("#nombreEmpresaOut").html(nombreEmpresa);
+            $("#rubroEmpresaOut").html(rubroEmpresa);
+            $("#nombrePersonaOut").html(nombrePersona);
+            $("#apellidoPersonaOut").html(apellidoPersona);
+            $("#telefonoPersonaOut").html(telefonoPersona);
+            $("#mailPersonaOut").html(mailPersona);
+        }
+    }
 
     // Verificando los campos de la API, la conexion ya funciona y responde en parte
     $.ajax({
@@ -117,16 +107,16 @@ function wizardSecond() {
 
 
     )
+}
+// $.ajax({
+//     method:"POST",
+//     url: "https://reqres.in/api/login",
+//     data: {
 
-    // $.ajax({
-    //     method:"POST",
-    //     url: "https://reqres.in/api/login",
-    //     data: {
-
-    //     "email": "mail",
-    //     "password": "Clave",
-    //     }
-    // }).done()
+//     "email": "mail",
+//     "password": "Clave",
+//     }
+// }).done()
 
 
 
@@ -135,5 +125,4 @@ function inicio() {
     $("#firstStep").show();
     $("#secondStep").hide();
     $("#thirdStep").hide();
-    }
 }
