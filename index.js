@@ -60,6 +60,47 @@ function wizardSecond() {
         let prueba = regexTelefonoAR.test(telefonoPersona);
 
         if (prueba) {
+
+            if (nombrePersona.length == 0 || apellidoPersona.length == 0 || mailPersona.length == 0)  {
+
+                $("#firstStep").hide();
+                $("#secondStep").show();
+                $("#thirdStep").hide();
+        
+            }
+            else{
+                $("#firstStep").hide();
+                $("#secondStep").hide();
+                $("#thirdStep").show();
+                // $("#errorTlf").text("El telefono es invalido");
+
+                $("#nombreEmpresaOut").html(nombreEmpresa);
+                $("#rubroEmpresaOut").html(rubroEmpresa);
+                $("#nombrePersonaOut").html(nombrePersona);
+                $("#apellidoPersonaOut").html(apellidoPersona);
+                $("#telefonoPersonaOut").html(telefonoPersona);
+                $("#mailPersonaOut").html(mailPersona);
+
+                $.ajax({
+                    method:"POST",
+                    url: "https://reqres.in/api/users",
+                    data: {
+                        "name": nombreEmpresa.value,
+                        "job": rubroEmpresa.value,
+                        "Cliente": nombrePersona,
+                        "Telefono": telefonoPersona,
+                        "mail": mailPersona,
+                    }
+                }).done(
+                    function(msj) {
+            
+                        alert("Muchas gracias por contactarte con nosotros, tu número de gestión es el  " + msj.id + " en breve nuestro equipo se pondrá en contacto contigo")
+            
+                    }
+                )
+           
+            }
+
            
         } 
         else {
@@ -69,58 +110,10 @@ function wizardSecond() {
             prueba = false;
 
         }
-        if (nombrePersona.length == 0 || apellidoPersona.length == 0 || mailPersona.length == 0)  {
-
-        }
-        else{
-            $("#firstStep").hide();
-            $("#secondStep").hide();
-            $("#thirdStep").show();
-            $("#errorTlf").text("El telefono es invalido");
-    
-        
-            $("#nombreEmpresaOut").html(nombreEmpresa);
-            $("#rubroEmpresaOut").html(rubroEmpresa);
-            $("#nombrePersonaOut").html(nombrePersona);
-            $("#apellidoPersonaOut").html(apellidoPersona);
-            $("#telefonoPersonaOut").html(telefonoPersona);
-            $("#mailPersonaOut").html(mailPersona);
-        }
+       
     }
 
-    // Verificando los campos de la API, la conexion ya funciona y responde en parte
-    $.ajax({
-        method:"POST",
-        url: "https://reqres.in/api/users",
-        data: {
-            "name": nombreEmpresa.value,
-            "job": rubroEmpresa.value,
-            "Cliente": nombrePersona,
-            "Telefono": telefonoPersona,
-            "mail": mailPersona,
-        }
-    }).done(
-        function(msj) {
-
-            alert("Muchas gracias por contactarte con nosotros, tu número de gestión es el  " + msj.id + " en breve nuestro equipo se pondrá en contacto contigo")
-
-        }
-
-
-    )
 }
-// $.ajax({
-//     method:"POST",
-//     url: "https://reqres.in/api/login",
-//     data: {
-
-//     "email": "mail",
-//     "password": "Clave",
-//     }
-// }).done()
-
-
-
 
 function inicio() {
     $("#firstStep").show();
