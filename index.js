@@ -101,7 +101,8 @@ function wizardSecond() {
         }
     }).done(
         function(msj) {
-        console.log(msj)
+
+            alert("Muchas gracias por contactarte con nosotros, tu número de gestión es el  " + msj.id + " en breve nuestro equipo se pondrá en contacto contigo")
 
         }
 
