@@ -39,13 +39,7 @@ function wizardFirst() {
         $("#firstStep").hide();
         $("#secondStep").show();
         $("#thirdStep").hide();
-    
-        console.log(nombreEmpresa);
-        console.log(rubroEmpresa);
-
     }
-
-
 }
 
 function wizardSecond() {
@@ -54,25 +48,31 @@ function wizardSecond() {
     let apellidoPersona = document.getElementById("apellidoPersona").value;
     let telefonoPersona = document.getElementById("telefonoPersona").value;
     let mailPersona = document.getElementById("mailPersona").value;
+     
+    const regexTelefonoAR = /^\+?(54)?[ -]?(0?11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
 
-    
-    if (nombrePersona.length == 0) {
+    // const regexTelefonoAR = /^\+?(54)?[ -]?(11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
+
+    if (nombrePersona.length == 0 || apellidoPersona.length == 0 || telefonoPersona.length == 0 || mailPersona.length == 0) {
         
     } else {
-        $("#firstStep").hide();
-        $("#secondStep").hide();
-        $("#thirdStep").show();
-        console.log(nombrePersona);
-        console.log(apellidoPersona);
-        console.log(telefonoPersona);
-        console.log(mailPersona);
+        if (regexTelefonoAR.test(telefonoPersona)) {
+            $("#firstStep").hide();
+            $("#secondStep").hide();
+            $("#thirdStep").show();
     
-        $("#nombreEmpresaOut").html(nombreEmpresa);
-        $("#rubroEmpresaOut").html(rubroEmpresa);
-        $("#nombrePersonaOut").html(nombrePersona);
-        $("#apellidoPersonaOut").html(apellidoPersona);
-        $("#telefonoPersonaOut").html(telefonoPersona);
-        $("#mailPersonaOut").html(mailPersona);
+        
+            $("#nombreEmpresaOut").html(nombreEmpresa);
+            $("#rubroEmpresaOut").html(rubroEmpresa);
+            $("#nombrePersonaOut").html(nombrePersona);
+            $("#apellidoPersonaOut").html(apellidoPersona);
+            $("#telefonoPersonaOut").html(telefonoPersona);
+            $("#mailPersonaOut").html(mailPersona);
+        } 
+        else if(telefonoPersona.length != 0 && regexTelefonoAR.test(!telefonoPersona)) {
+            $("#errorTlf").text("Número de teléfono en Argentina inválido");
+        }
+
     } 
 
 
