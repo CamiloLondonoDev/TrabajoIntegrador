@@ -40,7 +40,8 @@ a:hover{
     font-weight: 400;
 }
 #contacto{
-    color: #ad00b3;
-    font-weight: 700;
+    background-color: #ad00b3;
+    border-radius: 20px;
+    font-weight: bold;
 
 }
