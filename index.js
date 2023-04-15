@@ -8,6 +8,7 @@
     Array.prototype.slice.call(forms)
         .forEach(function (form) {
             form.addEventListener('submit', function (event) {
+
                 if (!form.checkValidity()) {
                     event.preventDefault()
                     event.stopPropagation()
@@ -49,31 +50,46 @@ function wizardSecond() {
     let telefonoPersona = document.getElementById("telefonoPersona").value;
     let mailPersona = document.getElementById("mailPersona").value;
      
-    const regexTelefonoAR = /^\+?(54)?[ -]?(0?11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
-
     // const regexTelefonoAR = /^\+?(54)?[ -]?(11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
+    // if (nombrePersona.length == 0 || apellidoPersona.length == 0 || telefonoPersona.length == 0 || mailPersona.length == 0) {
 
-    if (nombrePersona.length == 0 || apellidoPersona.length == 0 || telefonoPersona.length == 0 || mailPersona.length == 0) {
-        
-    } else {
-        if (regexTelefonoAR.test(telefonoPersona)) {
-            $("#firstStep").hide();
-            $("#secondStep").hide();
-            $("#thirdStep").show();
+    if (telefonoPersona.length == 0 ) {
+        $("#errorTlf").html("El Telefono es requerido");
+    
+    } else if (telefonoPersona.length != 0) {
+
+         let regexTelefonoAR = /^\+?(54)?[ -]?(0?11|[2368]\d)[ -]?(\d{4}[ -]?\d{4})$/;
+         let Prueba = regexTelefonoAR.test(telefonoPersona);
+
+             if (Prueba) {
+ 
+            } else {
+                console.log("es Falso");
+                $("#errorTlf").html("El formato del numero es erroneo");
+                $("#errorTlf").show();
+
+    }
+
+    // } else {
+    //     if (regexTelefonoAR.test(telefonoPersona)) {
+    //         $("#firstStep").hide();
+    //         $("#secondStep").hide();
+    //         $("#thirdStep").show();
+    //         $("#errorTlf").text("El telefono es invalido");
     
         
-            $("#nombreEmpresaOut").html(nombreEmpresa);
-            $("#rubroEmpresaOut").html(rubroEmpresa);
-            $("#nombrePersonaOut").html(nombrePersona);
-            $("#apellidoPersonaOut").html(apellidoPersona);
-            $("#telefonoPersonaOut").html(telefonoPersona);
-            $("#mailPersonaOut").html(mailPersona);
-        } 
-        else if(telefonoPersona.length != 0 && regexTelefonoAR.test(!telefonoPersona)) {
-            $("#errorTlf").text("Número de teléfono en Argentina inválido");
-        }
+    //         $("#nombreEmpresaOut").html(nombreEmpresa);
+    //         $("#rubroEmpresaOut").html(rubroEmpresa);
+    //         $("#nombrePersonaOut").html(nombrePersona);
+    //         $("#apellidoPersonaOut").html(apellidoPersona);
+    //         $("#telefonoPersonaOut").html(telefonoPersona);
+    //         $("#mailPersonaOut").html(mailPersona);
+    //     } 
+    //     else if(telefonoPersona.length != 0 && regexTelefonoAR.test(!telefonoPersona)) {
+    //         $("#errorTlf").text("Número de teléfono en Argentina inválido");
+    //     }
 
-    } 
+    
 
 
 
@@ -112,12 +128,12 @@ function wizardSecond() {
     //     }
     // }).done()
 
-}
+
 
 
 function inicio() {
     $("#firstStep").show();
     $("#secondStep").hide();
     $("#thirdStep").hide();
+    }
 }
-
