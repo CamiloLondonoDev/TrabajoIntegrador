@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="wizard.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script  src="https://code.jquery.com/jquery-3.6.4.js"integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
-    <script type="text/javascript" src="index.js"></script>
 
 
     <title>CodeCrafters</title>
@@ -27,20 +26,25 @@
         <h2 class="row" >Paso 1</h2>
         <p class="row">Ingrese los datos de su empresa</p>
 
-        <form class=" ml-0">
+        <form class="row g-3 needs-validation" novalidate>
             <!-- Input, combo texto -->
-            <label class="row" for="nomEmpresa" required>Nombre de la empresa</label>
-            <input class="row" type="text" id="nombreEmpresa" required>
-            <span class="row" id="errorNombre"></span>
+            <div class="col-6">
+                <label class="form-label" for="nombreEmpresa">Nombre de la empresa</label>
+                <input class="form-control" type="text" id="nombreEmpresa" required>
+                <div class="invalid-tooltip">
+                    El nombre de la empresa es requerido
+                </div>
+            </div>
 
+            <div class="col-6">
+                <label class="form-label" for="rubroEmpresa">Rubro</label>
+                <input class="form-control" type="text" id="rubroEmpresa" required>
+                <div class="invalid-tooltip">
+                    El rubro de la empresa es requerido
+                </div>
+            </div>
         
-            <label class="row" for="rubro">Rubro <div id="errorMsg"></div></label>
-            <input class="row" type="text" id="rubroEmpresa">
-            <span class="row" id="errorRubro"></span>
-
-        
-            <button type="button" onclick="wizardFirst()">Siguiente</button>
-        
+            <button class="btn btn-primary mt-3" onclick="wizardFirst()">Siguiente</button>
         </form>
     </div>
 
@@ -49,29 +53,55 @@
     <div class="container align-items-start ml-5 mt-5" id="secondStep">
         <!-- Barra de carga -->
         <img src="resources/BarraCarga2.svg" alt="" srcset="">
-
+    
         <h2 class="row">Paso 2</h2>
         <p class="row">Ingrese los datos de contacto</p>
-        <form>
+
+        <form class="g-3 needs-validation" novalidate>
             <!-- Input 2do form -->
-            <label class="row" for="nomPersona" required>Nombre</label> 
-            <input class="row" type="text" id="nombrePersona">
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-label" for="nombrePersona">Nombre</label>
+                    <input class="form-control" type="text" id="nombrePersona" required>
+                    <div class="invalid-tooltip">
+                        El Nombre es requerido
+                    </div>
+                </div>
+    
+                <div class="col-6">
+                    <label class="form-label" for="apellidoPersona">Apellido</label>
+                    <input class="form-control" type="text" id="apellidoPersona" required>
+                    <div class="invalid-tooltip">
+                        El Apellido es requerido
+                    </div>
+                </div>
+            </div>
 
-            <label class="row" for="apellidoPersona">Apellido</label> 
-            <input class="row" type="text" id="apellidoPersona">
 
-            <label class="row" for="telefono">Telefono</label>
-            <input class="row" type="tel" id="telefonoPersona">
+            <div class="row">
+                <div class="col-6">
+                    <label class="form-label" for="telefonoPersona">Telefono</label>
+                    <input class="form-control" type="tel" id="telefonoPersona" required>
+                    <div class="invalid-tooltip">
+                        El Telefono es requerido
+                    </div>
+                </div>
+    
+                <div class="col-6">
+                    <label class="form-label" for="mailPersona">Email</label>
+                    <input class="form-control" type="email" id="mailPersona" required>
+                    <div class="invalid-tooltip">
+                        El Email es requerido
+                    </div>
+                </div>
+            </div>
 
-            <label class="row" for="email">Email</label>
-            <input class="row" type="email" id="mailPersona"><br>
 
-            <div class="d-grid gap-2 d-md-block">
-                <button type="button" class="btn btn-primary" onclick="inicio()">Anterior</button>
-                <button type="button" class="btn btn-primary" onclick="wizardSecond()">Siguiente</button>
-              </div>
-
-
+    
+            <div class="d-grid gap-2 d-md-block mt-3">
+                <button class="btn btn-primary" onclick="inicio()">Anterior</button>
+                <button class="btn btn-primary" onclick="wizardSecond()">Siguiente</button>
+            </div>
 
         </form>
     </div>
@@ -108,6 +138,9 @@
             </div>
         </form>
     </div>
+
+
+    <script type="text/javascript" src="index.js"></script>
 
 </body>
 </html>
