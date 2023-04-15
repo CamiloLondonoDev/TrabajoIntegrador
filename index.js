@@ -88,7 +88,6 @@ function wizardSecond() {
         }
     }
 
-   
     // Verificando los campos de la API, la conexion ya funciona y responde en parte
     $.ajax({
         method:"POST",
