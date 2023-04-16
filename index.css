@@ -87,3 +87,15 @@ a:hover{
     align-self: center;
     border-radius: 10px;
 }
+#pasion{
+    color: #ad00b3;
+}
+#botonEnfasis{
+    background-color: #ad00b3;
+    border: none;
+}
+
+#footer{
+    background-color:#06B4FF;  
+}
+
