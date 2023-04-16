@@ -45,7 +45,7 @@
 
         <form class="row g-3 needs-validation" novalidate>
             <!-- Input, combo texto -->
-            <div class="col-6">
+            <div class="col-md-6">
                 <label class="form-label" for="nombreEmpresa">Nombre de la empresa</label>
                 <input class="form-control" type="text" id="nombreEmpresa" required>
                 <div class="invalid-tooltip">
@@ -53,7 +53,7 @@
                 </div>
             </div>
 
-            <div class="col-6">
+            <div class="col-md-6">
                 <label class="form-label" for="rubroEmpresa">Rubro</label>
                 <input class="form-control" type="text" id="rubroEmpresa" required>
                 <div  class="invalid-tooltip">
@@ -61,7 +61,7 @@
                 </div>
             </div>
         
-            <button class="btn btn-primary mt-3" onclick="wizardFirst()">Siguiente</button>
+            <button class="btn btn-primary mt-3 col-auto ml-3" onclick="wizardFirst()">Siguiente</button>
         </form>
     </div>
 
@@ -77,7 +77,7 @@
         <form class="g-3 needs-validation" novalidate>
             <!-- Input 2do form -->
             <div class="row">
-                <div class="col-6">
+                <div class="col-md-6">
                     <label class="form-label" for="nombrePersona">Nombre</label>
                     <input class="form-control" type="text" id="nombrePersona" required>
                     <div class="invalid-tooltip">
@@ -85,7 +85,7 @@
                     </div>
                 </div>
     
-                <div class="col-6">
+                <div class="col-md-6">
                     <label class="form-label" for="apellidoPersona">Apellido</label>
                     <input class="form-control" type="text" id="apellidoPersona" required>
                     <div class="invalid-tooltip">
@@ -96,7 +96,7 @@
 
 
             <div class="row">
-                <div class="col-6">
+                <div class="col-md-6">
                     <label class="form-label" for="telefonoPersona">Telefono</label>
                     <input class="form-control" type="tel" id="telefonoPersona" required>
                     <div id="errorTlf" class="invalid-tooltip">
@@ -105,7 +105,7 @@
                       
                 </div>
     
-                <div class="col-6">
+                <div class="col-md-6">
                     <label class="form-label" for="mailPersona">Email</label>
                     <input class="form-control" type="email" id="mailPersona" required>
                     <div id="errorMail" class="invalid-tooltip">
@@ -134,26 +134,26 @@
         <h2 class="row">Paso 3</h2>
         <p class="row">Corroborar datos</p>
         
-        <form>
+        <form class="mb-10" >
             <div class="container">
                 <label for="nombreEmpresaOut">Empresa</label>
-                <div class="row" id="nombreEmpresaOut"></div>
+                <div class="row offset-1" id="nombreEmpresaOut"></div>
             
                 <label for="rubroEmpresaOut">Rubro</label>
-                <div class="row" id="rubroEmpresaOut"></div>
+                <div class="row offset-1" id="rubroEmpresaOut"></div>
             
                 <label for="nombrePersonaOut">Nombre</label>
-                <div class="row" id="nombrePersonaOut"></div>
+                <div class="row offset-1" id="nombrePersonaOut"></div>
             
                 <label for="nombrePersonaOut">Apellido</label>
-                <div class="row" id="apellidoPersonaOut"></div>
+                <div class="row offset-1" id="apellidoPersonaOut"></div>
 
             
                 <label for="telefonoPersonaOut">Telefono</label>
-                <div class="row" id="telefonoPersonaOut"></div>
+                <div class="row offset-1" id="telefonoPersonaOut"></div>
 
                 <label for="mailPersonaOut">Mail</label>
-                <div class="row" id="mailPersonaOut"></div>
+                <div class="row offset-1" id="mailPersonaOut" ></div>
             </div>
             <!-- <div class="d-grid gap-2 d-md-block mt-3">
                 <button class="btn btn-primary nav-link" id="home" >Home</button>
@@ -161,7 +161,7 @@
         </form>
     </div>
 
-    <footer id="footer" class="w-100  d-flex  align-items-center justify-content-center flex-wrap">
+    <footer id="footer" class="w-100  d-flex  align-items-center justify-content-center flex-wrap footer fixed-bottom">
         <p class="fs-5 px-3  pt-3 align-items-end ">COPYRIGHT 2023 PROGRAMADORES WEB INDEPENDIENTES. TODOS LOS DERECHOS RESERVADOS.</p>
         <div class="" id="iconos" >
             <a href="#"><i class="bi bi-facebook"></i></a>

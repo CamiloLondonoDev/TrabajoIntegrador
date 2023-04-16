@@ -130,6 +130,7 @@ function wizardSecond() {
             function(msj) {
     
                 alert("Muchas gracias por contactarte con nosotros, tu número de gestión es el  " + msj.id + " en breve nuestro equipo se pondrá en contacto contigo")
+                window.location.href = "index.html"
             }
         )
     }
