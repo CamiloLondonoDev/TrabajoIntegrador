@@ -56,7 +56,7 @@ a:hover{
     font-weight: 400;
 }
 #contacto{
-    background-color: #ad00b3;
+    background-color: hwb(298 52% 9%);
     border-radius: 20px;
     font-weight: bold;
 
@@ -99,3 +99,14 @@ a:hover{
     background-color:#06B4FF;  
 }
 
+.marpic{
+    margin-block-end: auto;
+}
+
+.martxt {
+    margin-top: 30px;
+}
+
+#imgprogramador{
+    margin-top: 4%;
+}
