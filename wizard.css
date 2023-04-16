@@ -69,3 +69,12 @@ a:hover{
       width: 350px;
     }
   }
+
+  .footer{
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  .bi{
+    font-size: small;
+    }

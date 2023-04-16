@@ -73,7 +73,7 @@ a:hover{
 #titulo{
     
     font-weight: bolder;
-    font-size: 80px;
+    font-size: 70px;
     border: solid;
     border-top: none;
     border-left: none;
@@ -115,10 +115,12 @@ section{
     padding: 10px;
 }
 
-@media (max-width: 767px) {
-    input[type="text"] {
-      font-size: 14px;
-      padding: 6px 10px;
-    }
-  }
-  
+.footer{
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.bi{
+    font-size: small;
+}
+
